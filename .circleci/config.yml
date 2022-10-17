@@ -13,14 +13,11 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/base:2022.10
+      - image: cimg/base:2022.10-20.04
     steps:
       - checkout
       - ruby/install:
           version: 2.7.6
-      - run: |
-          rvm pkg install openssl
-          rvm reinstall ruby-2.7.6 --with-openssl-dir=$HOME/.rvm/usr
       - run: |
           gem install aws-sdk
 
